@@ -13,6 +13,13 @@
   "explorer.compactFolders": false,
   "editor.minimap.enabled": false,
 
+  "code-runner.clearPreviousOutput": true,
+  "code-runner.runInTerminal": true,
+  "code-runner.ignoreSelection": true,
+  "code-runner.executorMap": {
+    "typescript": "clear ; npx tsx"
+  },
+
   // 🛠 Formatação e Lint
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
