@@ -1,0 +1,124 @@
+{
+  "posts": [
+    {
+      "id": "99f8add4-7684-4c16-a316-616271db199e",
+      "title": "Rotina matinal de pessoas altamente eficazes",
+      "slug": "rotina-matinal-de-pessoas-altamente-eficazes",
+      "excerpt": "O Next.js também é uma boa escolha para quem quer se preocupar com performance e SEO.",
+      "content": "O Next.js também é uma boa escolha para quem quer se preocupar com performance e SEO.",
+      "coverImageUrl": "/images/bryen_8.png",
+      "published": true,
+      "createdAt": "2025-04-08T00:24:38.616Z",
+      "updatedAt": "2025-04-08T00:33:56.907Z",
+      "author": "Isabela Nunes"
+    },
+    {
+      "id": "afa086e4-53e4-492d-acf2-7c2966d83fcd",
+      "title": "Dicas para manter a saúde mental em dia",
+      "slug": "dicas-para-manter-a-saude-mental-em-dia",
+      "excerpt": "Em vez de configurar tudo manualmente, basta criar um arquivo com o nome certo e o Next.js entende que aquilo representa uma página.",
+      "content": "Em vez de configurar tudo manualmente, basta criar um arquivo com o nome certo e o Next.js entende que aquilo representa uma página.",
+      "coverImageUrl": "/images/bryen_6.png",
+      "published": true,
+      "createdAt": "2025-04-07T00:24:38.616Z",
+      "updatedAt": "2025-04-07T00:33:56.907Z",
+      "author": "Marina Duarte"
+    },
+    {
+      "id": "1b6a5f57-8a19-4933-91f4-1af678464ded",
+      "title": "Como a escrita pode mudar sua carreira",
+      "slug": "como-a-escrita-pode-mudar-sua-carreira",
+      "excerpt": "Muitas empresas e desenvolvedores individuais escolhem o Next.js justamente porque ele consegue unir simplicidade com recursos avançados.",
+      "content": "Muitas empresas e desenvolvedores individuais escolhem o Next.js justamente porque ele consegue unir simplicidade com recursos avançados.",
+      "coverImageUrl": "/images/bryen_9.png",
+      "published": true,
+      "createdAt": "2025-04-06T00:24:38.616Z",
+      "updatedAt": "2025-04-06T00:33:56.907Z",
+      "author": "Pedro Martins"
+    },
+    {
+      "id": "9eb8b7ac-2b48-4835-880a-a1c798e1a595",
+      "slug": "this-will-create-the-dillinger-image-and-pull-in-the-necessary-dependencies.-atbvp6",
+      "title": "This will create the dillinger image and pull in the necessary dependencies.",
+      "author": "Luiz Otávio",
+      "content": "**Disclaimer:** this API may change a lot since it is still under development. Feel free to help me to create the best boilerplate possible. My goal is to put at least an authentication system. CRUD operations for users, token and refresh tokens.\r\n\r\n# Clean Architecture API with TypeScript\r\n\r\nThis is my attempt to create an API with [node.js](https://nodejs.org/en/) and [typescript](https://www.typescriptlang.org/) following the principles of [clean architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html). I'm using [express.js](https://expressjs.com/pt-br/), but the idea is that you can replace it with any framework you want.\r\n\r\nFor data storage, I'm using [knex query builder](http://knexjs.org/), so you can use Postgres, MSSQL, MySQL, MariaDB, SQLite3, Oracle, and Amazon Redshift. Again, you can change the data storage with anything you want. You can create new repositories in `src/infrastructure/repositories`. You can add NoSQL too if needed, but you'll have to create your own repository (I might create an example in the future).\r\n\r\nThere's also another layer called \"common\" that you can use as a [cross-cutting concern](https://en.wikipedia.org/wiki/Cross-cutting_concern) layer. In this layer, you may add things that can be used in all other layers, as validations and helpers.\r\n\r\nRead more about clean architecture in [this article](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html).\r\n\r\n## Clean Architecture Layers\r\n\r\nThe folder structure may change in the future, but currently we have that:\r\n\r\n### domain layer\r\n\r\nThis is the \"domain\" or \"entities\" layer. Here's the description by Uncle Bob:\r\n\r\n&gt; Entities encapsulate Enterprise wide business rules. An entity can be an object with methods, or it can be a set of data structures and functions. It doesn’t matter so long as the entities could be used by many different applications in the enterprise.\r\n&gt;\r\n&gt; If you don’t have an enterprise, and are just writing a single application, then these entities are the business objects of the application. They encapsulate the most general and high-level rules. They are the least likely to change when something external changes. For example, you would not expect these objects to be affected by a change to page navigation, or security. No operational change to any particular application should affect the entity layer. ([Read the source](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html))\r\n\r\n### application layer\r\n\r\nThis is the **\"Use Cases\"** layer. Here you may add the application **Use cases**. Here's the description by Uncle Bob:\r\n\r\n&gt;The software in this layer contains application specific business rules. It encapsulates and implements all of the use cases of the system. These use cases orchestrate the flow of data to and from the entities, and direct those entities to use their enterprise wide business rules to achieve the goals of the use case.\r\n&gt;\r\n&gt;We do not expect changes in this layer to affect the entities. We also do not expect this layer to be affected by changes to externalities such as the database, the UI, or any of the common frameworks. This layer is isolated from such concerns.\r\n&gt;\r\n&gt;We do, however, expect that changes to the operation of the application will affect the use-cases and therefore the software in this layer. If the details of a use-case change, then some code in this layer will certainly be affected. ([Read the source](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html))\r\n\r\n### adapters (presentation) layer\r\n\r\nThis is the \"Interface Adapters\" layer. I don't really like that name, because I think it's confusing (it's now called presentation). The behavior of software in this layer is not the same as the \"Adapter\" design pattern by Gof, as it must not depend on external layers.\r\n\r\nI'm using the name **\"Presentation\"** for this layer.\r\n\r\nHere's the description by Uncle Bob:\r\n\r\n&gt; The software in this layer is a set of adapters that convert data from the format most convenient for the use cases and entities, to the format most convenient for some external agency such as the Database or the Web. It is this layer, for example, that will wholly contain the MVC architecture of a GUI. The Presenters, Views, and Controllers all belong in here. The models are likely just data structures that are passed from the controllers to the use cases, and then back from the use cases to the presenters and views.\r\n&gt;\r\n&gt; Similarly, data is converted, in this layer, from the form most convenient for entities and use cases, into the form most convenient for whatever persistence framework is being used. i.e. The Database. No code inward of this circle should know anything at all about the database. If the database is a SQL database, then all the SQL should be restricted to this layer, and in particular to the parts of this layer that have to do with the database.\r\n&gt;\r\n&gt; Also in this layer is any other adapter necessary to convert data from some external form, such as an external service, to the internal form used by the use cases and entities. ([Read the source](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html))\r\n\r\n### infrastructure layer\r\n\r\nThis folder (layer) is where we add everything related to external \"**Frameworks and Drivers**\". Here you can add the repositories, external frameworks, web and so on.\r\n\r\nHere's the description by Uncle Bob:\r\n\r\n&gt;The outermost layer is generally composed of frameworks and tools such as the Database, the Web Framework, etc. Generally you don’t write much code in this layer other than glue code that communicates to the next circle inwards.\r\n&gt;\r\n&gt;This layer is where all the details go. The Web is a detail. The database is a detail. We keep these things on the outside where they can do little harm. ([Read the source](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html))\r\n\r\n### main layer\r\n\r\nThis layer is where we put everything together. It's the \"dirty layer\", because most factories will be here. It may depend on all other layers in the system.\r\n\r\n## Clean Architecture visual guide\r\n\r\nHere is a visual guide that may help you:\r\n\r\n[![Clean Architecture - By Uncle Bob](https://raw.githubusercontent.com/luizomf/clean-architecture-api-boilerplate/master/docs/clean-architecture.png)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)\r\n\r\nNotice the \"Dependency rule\" (the arrows pointing inwards to the Entities). Here's the description of this rule:\r\n\r\n&gt; ## The Dependency Rule\r\n&gt;The concentric circles represent different areas of software. In general, the further in you go, the higher level the software becomes. The outer circles are mechanisms. The inner circles are policies.\r\n&gt;\r\n&gt;The overriding rule that makes this architecture work is The Dependency Rule. This rule says that source code dependencies can only point inwards. Nothing in an inner circle can know anything at all about something in an outer circle. In particular, the name of something declared in an outer circle must not be mentioned by the code in the an inner circle. That includes, functions, classes. variables, or any other named software entity.\r\n&gt;\r\n&gt;By the same token, data formats used in an outer circle should not be used by an inner circle, especially if those formats are generate by a framework in an outer circle. We don’t want anything in an outer circle to impact the inner circles. ([Read the source](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html))\r\n\r\nIn our case, data enter the system via \"express routes\" (infrastructure layer) to the \"controllers\" (adapters layer), to the \"use cases\" (application layer), to the \"domain\" (domain/entities layer). Then the system outputs via \"domain\" -&gt; \"use cases\" -&gt; \"presentation\" -&gt; \"infrastructure\". I'm using the \"main\" layer to create factories for \"middlewares\", and \"controllers\" (and possibly other factories).\r\n\r\n## Folder Structure in detail\r\n\r\n**Disclaimer** - I'm currently developing this software and I may not keep changing this README. But it's good for you to see how the application is evolving.\r\n\r\n```\r\nsrc - ROOT\r\n├── application - Application or Use cases layer\r\n│   ├── errors - Errors only\r\n│   ├── ports - Interfaces for everything the use cases need\r\n│   │   ├── controllers - Interfaces for controllers\r\n│   │   ├── middlewares - Interfaces for middlewares\r\n│   │   ├── repositories - Interfaces for repositories\r\n│   │   │   ├── token - Interfaces for token repositories\r\n│   │   │   └── user - Interfaces for user repositories\r\n│   │   ├── requests - Interfaces for requests\r\n│   │   ├── responses - Interfaces for responses\r\n│   │   ├── sanitizers - Interfaces for sanitizers\r\n│   │   ├── security - Interfaces for everything security\r\n│   │   └── validation - Interfaces for validations\r\n│   ├── use-cases - Concrete use cases\r\n│   │   ├── sign-in - Sign-in use cases\r\n│   │   ├── token - Token use cases\r\n│   │   └── user - User use cases\r\n│   └── validation - Concrete validations\r\n│       ├── common - Common validations\r\n│       │   └── leaf - Concrete Validations (single)\r\n│       ├── sign-in - Sign-in validations\r\n│       │   └── composite - Composite sign-in validations\r\n│       └── user - User validations\r\n│           ├── composite - Composite user validations\r\n│           └── leaf - Concrete user validations (single)\r\n├── common - Cross cutting concerns layer\r\n│   ├── adapters - Adapters for external services and libs\r\n│   │   ├── sanitizers - Sanitizers adapters\r\n│   │   │   └── generic - Generic sanitizers\r\n│   │   ├── security - Security Adapters\r\n│   │   └── validators - Validators Adapters\r\n│   └── helpers - Helper functions\r\n│       ├── date - date related helper functions\r\n│       ├── numbers - number related helper functions\r\n│       ├── objects - objects related helper functions\r\n│       └── strings - strings related helper functions\r\n├── domain - Domain Layer\r\n│   ├── models - All models\r\n│   │   ├── role - User role models\r\n│   │   ├── sign-in - Sign-in models\r\n│   │   ├── token - Token models\r\n│   │   └── user - User models\r\n│   └── use-cases - Interfaces for use cases\r\n│       ├── sign-in - Interfaces for sign-in use cases\r\n│       ├── token - Interfaces for token use cases\r\n│       └── user - Interfaces for user use cases\r\n├── infrastructure - Infrastructure layer\r\n│   ├── express - Everything express related\r\n│   │   ├── adapters - Express adapters\r\n│   │   ├── middlewares - Express middlewares\r\n│   │   ├── routes - Express routes\r\n│   │   └── setup - Express setup functions\r\n│   ├── knex - Everything knex related\r\n│   │   ├── migrations - migrations\r\n│   │   └── seeds - seeds\r\n│   └── repositories - Repositories implementations\r\n│       ├── token - Token repositories\r\n│       │   └── sql - SQL Token repositories\r\n│       └── user - User repositories\r\n│           └── sql - SQL user repositories\r\n│               ├── helpers - helper functions\r\n│               ├── models - models\r\n│               └── repositories - repositories\r\n├── main - Main layer\r\n│   └── factories - factories to put everything together\r\n│       ├── controllers - Controller factories\r\n│       │   ├── sign-in - Sign-in factories\r\n│       │   ├── token - Token factories\r\n│       │   └── user - user factories\r\n│       └── middlewares - application specific middlewares\r\n│           └── authentication - authentication middlewares\r\n└── presentation - Presentation layer\r\n    ├── controllers - Concrete controllers\r\n    │   ├── sign-in - Sign-in controller\r\n    │   ├── token - Token controller\r\n    │   └── user - User controller\r\n    ├── middlewares - Concrete application specific middlewares\r\n    │   └── authentication - Authentication middlewares\r\n    └── responses - Response classes\r\n```\r\n## The \"User\" model\r\n\r\nYou may notice I created crud operations for a user, added roles, token, refreshTokens and a way to sign-in. You can change it the way you want. I'm adding things on my free time.\r\n\r\n## Todo\r\n\r\n- [x] Create CRUD operations for \"user\"\r\n- [x] Create sign-in system with token and refresh token\r\n- [x] Add authorization token to user routes (except \"create\")\r\n- [x] Create \"roles\" to allow or disallow access to any route\r\n- [x] Change user routes to allow \"Admin\" role and owner to access route\r\n- [x] Create a refresh token route to allow regenerate tokens via refresh token\r\n\r\n# Routes\r\n\r\nHere are routes I already created:\r\n\r\n### Users\r\n\r\n|`/users`||||\r\n|-|-|-|-|\r\n|**Method**|**Route**|**Description**|\r\n|GET|`/users/:id`|get one user|\r\n|GET|`/users`|get all users|\r\n|DELETE|`/users/:id`|delete one user|\r\n|PUT|`/users/:id`|update one user|\r\n|POST|`/users`|create one user|\r\n\r\n### Sign-in\r\n\r\n|`/sign-in`||||\r\n|-|-|-|-|\r\n|**Method**|**Route**|**Description**|\r\n|POST|`/sign-in`|return token and refresh token for a user|",
+      "excerpt": "Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,",
+      "coverImageUrl": "/images/bryen_3.png",
+      "published": true,
+      "createdAt": "2025-04-05T00:24:38.616Z",
+      "updatedAt": "2025-04-05T00:33:56.907Z"
+    },
+    {
+      "id": "6b204dab-2312-4525-820a-a0463560835f",
+      "title": "Como a tecnologia impacta nosso bem-estar",
+      "slug": "como-a-tecnologia-impacta-nosso-bem-estar",
+      "excerpt": "Também ajuda a organizar melhor os arquivos e componentes, o que facilita a manutenção do projeto no longo prazo.",
+      "content": "Também ajuda a organizar melhor os arquivos e componentes, o que facilita a manutenção do projeto no longo prazo.",
+      "coverImageUrl": "/images/bryen_5.png",
+      "published": false,
+      "createdAt": "2025-03-30T07:11:33",
+      "updatedAt": "2025-04-05T00:14:03.175Z",
+      "author": "Lucas Lima"
+    },
+    {
+      "id": "76396dd3-9581-43b5-856d-fe1a78714e8c",
+      "title": "Os desafios do trabalho remoto moderno",
+      "slug": "os-desafios-do-trabalho-remoto-moderno",
+      "excerpt": "Ele surgiu como uma solução para simplificar tarefas comuns que os desenvolvedores enfrentam ao criar sites e aplicações.",
+      "content": "Ele surgiu como uma solução para simplificar tarefas comuns que os desenvolvedores enfrentam ao criar sites e aplicações.",
+      "coverImageUrl": "/images/bryen_1.png",
+      "published": true,
+      "createdAt": "2025-03-08T13:13:13",
+      "updatedAt": "2025-03-08T13:13:13",
+      "author": "João Silva"
+    },
+    {
+      "id": "bf5c7dae-06a4-4155-9c01-a56e02956496",
+      "title": "Como manter o foco no mundo digital",
+      "slug": "como-manter-o-foco-no-mundo-digital",
+      "excerpt": "Next.js é um framework de desenvolvimento criado para facilitar a construção de aplicações web modernas usando React.",
+      "content": "Next.js é um framework de desenvolvimento criado para facilitar a construção de aplicações web modernas usando React.",
+      "coverImageUrl": "/images/bryen_0.png",
+      "published": true,
+      "createdAt": "2025-02-22T04:32:54",
+      "updatedAt": "2025-02-22T04:32:54",
+      "author": "Ana Costa"
+    },
+    {
+      "id": "bc9a540f-66a9-4ab0-8d50-6216ab1cac53",
+      "title": "O papel do silêncio em uma vida criativa",
+      "slug": "o-papel-do-silencio-em-uma-vida-criativa",
+      "excerpt": "Isso deixa o fluxo de trabalho mais natural, especialmente para quem já está acostumado com a estrutura de pastas e arquivos.",
+      "content": "Isso deixa o fluxo de trabalho mais natural, especialmente para quem já está acostumado com a estrutura de pastas e arquivos.",
+      "coverImageUrl": "/images/bryen_7.png",
+      "published": true,
+      "createdAt": "2025-02-11T20:59:30",
+      "updatedAt": "2025-02-11T20:59:30",
+      "author": "Thiago Ribeiro"
+    },
+    {
+      "id": "3993fcf7-2490-48ed-be2e-58c2030ee764",
+      "title": "Organização pessoal: por onde começar",
+      "slug": "organizacao-pessoal-por-onde-comecar",
+      "excerpt": "Por exemplo, ele pode dividir o código em partes menores para que o navegador só carregue o que for necessário.",
+      "content": "Por exemplo, ele pode dividir o código em partes menores para que o navegador só carregue o que for necessário.",
+      "coverImageUrl": "/images/bryen_4.png",
+      "published": true,
+      "createdAt": "2025-01-15T04:54:26",
+      "updatedAt": "2025-01-15T00:54:26",
+      "author": "Bianca Rocha"
+    },
+    {
+      "id": "be3f14a1-0105-4e2e-bfc9-133a05e7bda6",
+      "title": "10 hábitos para aumentar sua produtividade",
+      "slug": "10-habitos-para-aumentar-sua-produtividade",
+      "excerpt": "o Next.js já vem com várias decisões prontas, permitindo que você comece a desenvolver mais rapidamente.",
+      "content": "o Next.js já vem com várias decisões prontas, permitindo que você comece a desenvolver mais rapidamente.",
+      "coverImageUrl": "/images/bryen_2.png",
+      "published": false,
+      "createdAt": "2025-01-07T22:54:10",
+      "updatedAt": "2025-01-07T22:54:10",
+      "author": "Carla Mendes"
+    }
+  ]
+}
