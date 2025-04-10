@@ -11,6 +11,7 @@
   "workbench.editor.labelFormat": "short",
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
+  "editor.minimap.enabled": false,
 
   // 🛠 Formatação e Lint
   "editor.defaultFormatter": "esbenp.prettier-vscode",
