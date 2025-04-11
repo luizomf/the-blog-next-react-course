@@ -12,6 +12,7 @@
   "editor.tabSize": 2,
   "explorer.compactFolders": false,
   "editor.minimap.enabled": false,
+  "workbench.editor.enablePreview": false,
 
   "code-runner.clearPreviousOutput": true,
   "code-runner.runInTerminal": true,
