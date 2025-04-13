@@ -1,7 +1,6 @@
 import { findAllPublicPostsCached } from '@/lib/post/queries';
 import { PostCoverImage } from '../PostCoverImage';
 import { PostSummary } from '../PostSummary';
-import { createImageSrc } from '@/utils/create-image-src';
 
 export async function PostsList() {
   const posts = await findAllPublicPostsCached();
@@ -20,7 +19,7 @@ export async function PostsList() {
               imageProps={{
                 width: 1200,
                 height: 720,
-                src: createImageSrc(post.coverImageUrl),
+                src: post.coverImageUrl,
                 alt: post.title,
               }}
             />
