@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@uiw/react-md-editor": "^4.0.5",
     "better-sqlite3": "^11.9.1",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
