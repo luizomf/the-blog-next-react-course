@@ -10,6 +10,7 @@ import { makePartialPublicPost, PublicPost } from '@/dto/post/dto';
 import { createPostAction } from '@/actions/post/create-post-action';
 import { toast } from 'react-toastify';
 import { updatePostAction } from '@/actions/post/update-post-action';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 type ManagePostFormUpdateProps = {
   mode: 'update';
@@ -26,6 +27,9 @@ type ManagePostFormProps =
 
 export function ManagePostForm(props: ManagePostFormProps) {
   const { mode } = props;
+  const searchParams = useSearchParams();
+  const created = searchParams.get('created');
+  const router = useRouter();
 
   let publicPost;
   if (mode === 'update') {
@@ -59,6 +63,16 @@ export function ManagePostForm(props: ManagePostFormProps) {
       toast.success('Post atualizado com sucesso!');
     }
   }, [state.success]);
+
+  useEffect(() => {
+    if (created === '1') {
+      toast.dismiss();
+      toast.success('Post criado com sucesso!');
+      const url = new URL(window.location.href);
+      url.searchParams.delete('created');
+      router.replace(url.toString());
+    }
+  }, [created, router]);
 
   const { formState } = state;
   const [contentValue, setContentValue] = useState(publicPost?.content || '');
@@ -121,7 +135,7 @@ export function ManagePostForm(props: ManagePostFormProps) {
           disabled={isPending}
         />
 
-        <ImageUploader />
+        <ImageUploader disabled={isPending} />
 
         <InputText
           labelText='URL da imagem de capa'
