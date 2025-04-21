@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "drizzle-kit migrate",
+    "seed": "tsx src/db/drizzle/seed.ts"
   },
   "dependencies": {
     "@uiw/react-md-editor": "^4.0.5",
