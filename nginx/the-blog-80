@@ -1,0 +1,42 @@
+server {
+  listen 80;
+  server_name theblog.otaviomiranda.com.br;
+
+  # Desativa buffer pra suportar Streaming e Suspense do Next.js
+  proxy_buffering off;
+  proxy_set_header X-Accel-Buffering no;
+
+  # Servir arquivos estáticos do /public
+  location /public/ {
+    alias /home/luizotavio/theblog/public/;
+  }
+
+  # Servir arquivos estáticos do /public/uploads
+  location /uploads/ {
+    alias /home/luizotavio/theblog/public/uploads/;
+  }
+
+  # Resto do tráfego passa pro app Node (Next.js)
+  location / {
+    proxy_pass http://localhost:3000;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    # Permitir WebSocket (caso use algum no futuro)
+    proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection 'upgrade';
+  }
+
+  location /_next/ {
+    proxy_pass http://localhost:3000;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+  }
+}

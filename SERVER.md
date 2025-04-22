@@ -47,6 +47,7 @@ npm -g install npm@latest
 Comandos para iniciar o site do zero:
 
 ```sh
+cd theblog
 # Ter o node instalado
 # Instalar todos os pacotes
 npm i
