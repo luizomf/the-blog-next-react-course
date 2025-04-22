@@ -7,7 +7,7 @@ import { ToastifyContainer } from '@/components/ToastifyContainer';
 
 export const metadata: Metadata = {
   title: {
-    default: '3 The blog - Este é um blog com Next.js',
+    default: 'The blog - Este é um blog com Next.js',
     template: '%s | The Blog',
   },
   description: 'Essa seria a descrição dessa página.',
