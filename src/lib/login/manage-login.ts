@@ -1,4 +1,3 @@
-import bcrypt from 'bcryptjs';
 import { cookies } from 'next/headers';
 import { SignJWT, jwtVerify } from 'jose';
 import { redirect } from 'next/navigation';
@@ -14,17 +13,6 @@ type JwtPayload = {
   username: string;
   expiresAt: Date;
 };
-
-export async function hashPassword(password: string) {
-  const hash = await bcrypt.hash(password, 10);
-  const base64 = Buffer.from(hash).toString('base64');
-  return base64;
-}
-
-export async function verifyPassword(password: string, base64Hash: string) {
-  const hash = Buffer.from(base64Hash, 'base64').toString('utf-8');
-  return bcrypt.compare(password, hash);
-}
 
 export async function createLoginSession(username: string) {
   const expiresAt = new Date(Date.now() + loginExpSeconds * 1000);
